@@ -44,6 +44,7 @@ export default function Signup() {
                         type="text"
                         name="name"
                         label="name"
+                        placeholder="Name"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -54,6 +55,7 @@ export default function Signup() {
                         type="text"
                         name="last-name"
                         label="last name"
+                        placeholder="Last name"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                     />
@@ -65,6 +67,7 @@ export default function Signup() {
                     type="email"
                     name="email"
                     label="email"
+                    placeholder="Email"
                     // defaultValue={this.state.email}
                     handleChange={handleChange}
                     required
@@ -76,6 +79,7 @@ export default function Signup() {
                     type="text"
                     name="address"
                     label="address"
+                    placeholder="Address"
                     // defaultValue={this.state.email}
                     handleChange={handleChange}
                     required
@@ -88,6 +92,7 @@ export default function Signup() {
                         type="text"
                         name="city"
                         label="city"
+                        placeholder="City"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -98,6 +103,7 @@ export default function Signup() {
                         type="text"
                         name="pinCode"
                         label="pin code"
+                        placeholder="Pin code"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -110,6 +116,7 @@ export default function Signup() {
                         type="text"
                         name="country"
                         label="country"
+                        placeholder="Country"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -120,6 +127,7 @@ export default function Signup() {
                         type="text"
                         name="state"
                         label="state"
+                        placeholder="State"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -132,7 +140,8 @@ export default function Signup() {
                     <InputField
                         type="text"
                         name="mobile"
-                        label="mobile text"
+                        label="mobile number"
+                        placeholder="Mobile number"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -142,7 +151,8 @@ export default function Signup() {
                     <InputField
                         type="text"
                         name="text"
-                        label="mobile text"
+                        label="mobile number"
+                        placeholder="Mobile number"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                     
@@ -156,6 +166,7 @@ export default function Signup() {
                         type="text"
                         name="fax"
                         label="fax"
+                        placeholder="Fax"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                         required
@@ -165,7 +176,8 @@ export default function Signup() {
                     <InputField
                         type="text"
                         name="phone"
-                        label="phone text"
+                        label="phone number"
+                        placeholder="Phone number"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
                     />
@@ -177,6 +189,7 @@ export default function Signup() {
                     type="password"
                     name="password"
                     label="password"
+                    placeholder="Password"
                     // defaultValue={this.state.email}
                     handleChange={handleChange}
                     required
@@ -187,6 +200,7 @@ export default function Signup() {
                     type="password"
                     name="cPassword"
                     label="confirm password"
+                    placeholder="Confirm password"
                     // defaultValue={this.state.email}
                     handleChange={handleChange}
                     required

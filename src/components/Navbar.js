@@ -20,7 +20,7 @@ export default function Navbar() {
                             <NavLink className="nav-link" to="/cart"><UilShoppingBag/></NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/feature">Sign-in</NavLink>
+                            <NavLink className="nav-link" to="/sign-in">Sign-in</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/sign-up">Sign-up</NavLink>
