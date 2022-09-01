@@ -17,13 +17,13 @@ export default function Navbar() {
                             <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/feature"><UilShoppingBag/></NavLink>
+                            <NavLink className="nav-link" to="/cart"><UilShoppingBag/></NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="/feature">Sign-in</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="/feature">Sign-up</NavLink>
+                            <NavLink className="nav-link" to="/sign-up">Sign-up</NavLink>
                         </li>
                     </ul>
                 </div>
