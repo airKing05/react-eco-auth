@@ -7,10 +7,10 @@ export default function InputField({handleChange, label, ...otherProps}) {
   return (
     <div className='mb-2 container-fluid'>
         <span>
-              <div class="mb-3">
-                  <label for={`exampleInput${label}`} class="form-label">{capitalizedLabel}</label>
-                  <input class="form-control" id={`exampleInput${label}`} aria-describedby="emailHelp" onChange={handleChange} {...otherProps}/>
-              </div>
+            <div class="mb-3">
+          <label for={`exampleInput${encodeURI(label)}`} class="form-label">{capitalizedLabel}</label>
+          <input class="form-control" id={`exampleInput${encodeURI(label) }`} aria-describedby="emailHelp" onChange={handleChange} {...otherProps}/>
+            </div>
         </span>
 
     </div>

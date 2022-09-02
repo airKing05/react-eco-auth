@@ -1,13 +1,50 @@
-import React from 'react'
-import InputField from '../components/InputField'
+import React, { useState } from 'react'
+import InputField from '../components/InputField';
+import axios from "axios";
+import { v4 as uuid } from 'uuid';
+
+const userData = {
+    "name": "anilraj",
+    "lastName": "meena",
+    "email": "anil@gmail.com",
+    "address": "chandan heli",
+    "city": "bundi",
+    "pinCode": "323021",
+    "country": "india",
+    "state": "rajasthan",
+    "mobileNumber": "1234567890",
+    "fax": "234rtgfds",
+    "phoneNumber": "0987654321",
+    "password": "anilraj123",
+    "cPassword": "anilraj123"
+}
 
 export default function Signup() {
- 
-    function handleChange(e) {
-        
-    }
-    function handleClick(){
+    const [user, setUser] = useState(userData);
 
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setUser({ ...user, [name]: value });
+    }
+    // console.log(user)
+    function handleClick() {
+        const url = 'http://localhost:3001/userData'
+        const unique_id = uuid()
+        //console.log()
+        const userDataToSend = fetch(url, {
+            method: 'POST',
+            headers: {
+                "content-Type": "application/json"
+            },
+            body: JSON.stringify({ ...user, id: unique_id })
+
+        })
+        userDataToSend.then((res) => res.json())
+        .then(res => {
+            const {email, password}  = user;
+            const loginData = { email, password, unique_id }
+            localStorage.setItem('user', JSON.stringify(loginData))
+        })
     }
     return (
         <div className='container py-5' style={{ maxWidth: "800px" }}>
@@ -37,7 +74,7 @@ export default function Signup() {
                     </span>
                 </div>
             </div>
-        
+
             <div className='row pt-3'>
                 <div className='col-md-6'>
                     <InputField
@@ -136,7 +173,7 @@ export default function Signup() {
             </div>
 
             <div className='row'>
-                <div className='col-md-3'>
+                {/* <div className='col-md-3'>
                     <InputField
                         type="text"
                         name="mobile"
@@ -146,7 +183,7 @@ export default function Signup() {
                         handleChange={handleChange}
                         required
                     />
-                </div>
+                </div> */}
                 <div className='col-md-9'>
                     <InputField
                         type="text"
@@ -155,7 +192,7 @@ export default function Signup() {
                         placeholder="Mobile number"
                         // defaultValue={this.state.email}
                         handleChange={handleChange}
-                    
+
                     />
                 </div>
             </div>

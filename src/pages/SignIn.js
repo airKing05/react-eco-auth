@@ -1,13 +1,32 @@
-import React from 'react';
+import React, {useState} from 'react';
+import { useNavigate } from "react-router-dom";
 import InputField from '../components/InputField';
 
+const userData = {
+    email: "",
+    password: ""
+};
 
 export default function SignIn() {
-    function handleChange(e) {
+    const [user, setUser] = useState(userData);
+    const [err, setErr] = useState(false)
+    const navigateTo = useNavigate();
 
+    function handleChange(e) {
+        const { name, value } = e.target;
+        setUser({ ...user, [name]: value });
     }
     function handleClick() {
-
+       let localData = localStorage.getItem('user')
+       localData = JSON.parse(localData)
+        if(user.email === localData.email && user.password === localData.password){
+            localStorage.setItem('userAuth', JSON.stringify(user))
+            alert("login success");
+            setErr(false)
+            navigateTo('/');
+        }else{
+            setErr(false)
+        }
     }
   return (
     <div className='container my-5' style={{maxWidth: '800px'}}>
@@ -35,7 +54,11 @@ export default function SignIn() {
           </div>
           <div class="d-grid gap-2 mx-3 pt-3">
               <button class="btn btn-success" type="button" onClick={handleClick}>Submit</button>
+              {
+                  !err ? <h5 className=' mt-2 text-danger'>User does not exist</h5> : null
+              }
           </div>
+          
     </div>
   )
 }
