@@ -13,8 +13,6 @@ export default function Home() {
     getData()
   }, [])
 
-  console.log("products", products)
-
   return (
     <div className='container px-2'>
        <div className='row my-5 d-flex justify-content-center'>

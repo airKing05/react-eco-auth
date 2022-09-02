@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Card({...product}) {
     const { price, title, image, category } = product;
-    console.log(price, title)
+    
   return (
     <div className='col-md-3 p-2 mx-1 my-4 border rounded text-center'>
       <div className='position-relative'>

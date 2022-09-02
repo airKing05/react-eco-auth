@@ -42,8 +42,10 @@ export default function Signup() {
         userDataToSend.then((res) => res.json())
         .then(res => {
             const {email, password}  = user;
-            const loginData = { email, password, unique_id }
-            localStorage.setItem('user', JSON.stringify(loginData))
+            const newData = { email, password, unique_id }
+            const oldData = (localStorage.getItem('userData')) != null ? JSON.parse(localStorage.getItem('userData')): [{}]
+            const loginData = [newData, ...oldData ]
+            localStorage.setItem('userData', JSON.stringify(loginData))
         })
     }
     return (
