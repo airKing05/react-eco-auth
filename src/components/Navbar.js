@@ -6,8 +6,8 @@ import { UilShoppingBag, UilHouseUser, UilSignin, UilSignout, UilEdit } from '@i
 
 export default function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg bg-light px-3 py-3">
-            <div className="container-fluid mx-5 fs-4">
+        <nav className="navbar navbar-expand-lg bg-light px-md-3 py-3">
+            <div className="container-fluid mx-md-5 fs-4">
                 <NavLink className="navbar-brand" to="/">React-Eco</NavLink>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>

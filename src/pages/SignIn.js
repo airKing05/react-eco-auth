@@ -15,6 +15,7 @@ export default function SignIn() {
     function handleChange(e) {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
+        setErr(false)
     }
     function handleClick() {
         let localData = localStorage.getItem('userData')
@@ -24,11 +25,11 @@ export default function SignIn() {
         })
        console.log(userAuth)
         if (userAuth.length === 0){
-            setErr(false)
+            setErr(true)
         }else{
             localStorage.setItem('userAuth', JSON.stringify(userAuth))
-            alert("login success");
             setErr(false)
+            alert("login success");
             navigateTo('/');
         }
 
@@ -60,7 +61,7 @@ export default function SignIn() {
             <div class="d-grid gap-2 mx-3 pt-3">
                 <button class="btn btn-success" type="button" onClick={handleClick}>Submit</button>
                 {
-                    !err ? <h5 className=' mt-2 text-danger'>User does not exist</h5> : null
+                    err ? <h5 className=' mt-2 text-danger'>User does not exist</h5> : null
                 }
             </div>
 
