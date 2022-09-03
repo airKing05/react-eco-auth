@@ -1,7 +1,10 @@
 import React from 'react'
+import CartsCard from '../components/CartsCard'
 
 export default function Cart() {
   return (
-    <div>this is cart page</div>
+    <div className='container' style={{maxWidth: '800px'}}>
+      <CartsCard/>
+    </div>
   )
 }

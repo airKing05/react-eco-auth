@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import InputField from '../components/InputField';
-import axios from "axios";
 import { v4 as uuid } from 'uuid';
 
 const userData = {
@@ -186,7 +185,7 @@ export default function Signup() {
                         required
                     />
                 </div> */}
-                <div className='col-md-9'>
+                <div className='col'>
                     <InputField
                         type="text"
                         name="text"
