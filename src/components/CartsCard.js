@@ -1,14 +1,25 @@
-import React from 'react'
+import React from 'react';
+import { UilTimes } from '@iconscout/react-unicons';
+import { useDispatch } from "react-redux";
+import { removeFromCart } from "../redux/actions/cartActions";
 
-export default function CartsCard() {
+export default function CartsCard(props) {
+  const {id, price, title, image, rating } = props.cartProduct;
+  //console.log(rating)
+  const dispatch = useDispatch();
+  function handleRemoveFromCart() {
+    dispatch(removeFromCart(id))
+  }
+  
   return (
-      <div className='row shadow-lg p-3 mb-5 bg-body rounded mt-4'>
+      <div className='row shadow-lg p-3 mb-5 bg-body rounded mt-4 position-relative'>
+      <span className='position-absolute' style={{top: '5%', right: '0%'}} onClick={handleRemoveFromCart}><UilTimes/></span>
           <div className='col-md-3 text-center mb-3 mb-md-0'>
-              <img src='https://bit.ly/3edXLc5' className='img-fluid' width='100' alt='photu' />
+              <img src={image && image} className='img-fluid' width='100' alt='photu' />
          </div>
           <div className='col-md-3 my-auto text-center'>
-              <h4> Backpack</h4>
-              <p>Rating: 3.9</p>
+        <h4 className='text-name'>{title && title}</h4>
+              <p>Rating: </p>
           </div>
           <div className='col-md-3 text-center my-auto'>
               <span className='rounded-circle bg-secondary pt-0 pb-1 px-2 fw-bold fs-5 text-white'>+</span>
@@ -16,7 +27,7 @@ export default function CartsCard() {
               <span className='rounded-circle bg-secondary pt-0 pb-1 px-2 fw-bold fs-5 text-white'>-</span>
           </div>
           <div className='col-md-3 text-center my-auto'>
-            <span className='fs-5 fw-bold'>Rs. 123</span>
+            <span className='fs-5 fw-bold'>USD. {price && price}</span>
           </div>
     </div>
   )

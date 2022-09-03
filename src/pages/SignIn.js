@@ -23,7 +23,7 @@ export default function SignIn() {
         let userAuth = localData.filter((item) => {
           return  item.email === user.email && item.password === user.password
         })
-       console.log(userAuth)
+       //console.log(userAuth)
         if (userAuth.length === 0){
             setErr(true)
         }else{

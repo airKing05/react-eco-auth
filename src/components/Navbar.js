@@ -1,10 +1,12 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { UilShoppingBag, UilHouseUser, UilSignin, UilSignout, UilEdit } from '@iconscout/react-unicons'
-
+import { useSelector } from "react-redux";
 
 
 export default function Navbar() {
+    const cartData = useSelector((state) => state.cartData)
+    
     return (
         <nav className="navbar navbar-expand-lg bg-light px-md-3 py-3">
             <div className="container-fluid mx-md-5 fs-4">
@@ -20,7 +22,9 @@ export default function Navbar() {
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link position-relative" to="/cart"><UilShoppingBag/> 
-                                <span className='rounded-circle bg-secondary px-2 text-white position-absolute fs-6' style={{top: '0%', left: '0%'}}>1</span>
+                            {
+                                    cartData.length-1 > 0 ? <span className='rounded-circle bg-secondary px-2 text-white position-absolute fs-6' style={{ top: '0%', left: '0%' }}>{cartData.length-1}</span> : null
+                            } 
                              Cart</NavLink>
                         </li>
                         <li className="nav-item">
