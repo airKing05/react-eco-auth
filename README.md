@@ -1,70 +1,109 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Ecommerce Authentication
 
-## Available Scripts
+This Web App is Authentication of user.
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## UI Featrutes
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User can sign-up with all the required details
+- It does not resist you for validation
+- On the successful registration, user can sign up with required details
+- Now user could move to Home page as well as cart page
+- Can add products to cart page, can increase the quantity or reduce the quantity of product from cart page
 
-### `npm test`
+## Database
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Json server is created to store the date data od user
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Sign-In feature
+- while signUp some part of data is stored to the local storage.
+- If the signin fields data match with local storage user successfully login
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Authentication 
+- while user signin, signin data is stored to the local storage agin with different key
+- Protected component is created to protect unauthorized user to enter in cart page as well as Home page
+- Protected can get the data from the local storage for the successful signin user
+- If user is exist, let Him enter to Home and cart page
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## API
+**Products Api**
 
-### `npm run eject`
+- https://fakestoreapi.com/products
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**SignUp Api**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- http://localhost:3001/userData
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tech Stack
 
-### Code Splitting
+**Client:** React, Redux, BootStrap, CSS
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Installation
 
-### Making a Progressive Web App
+Install **ecom-products-review** with npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```bash
+  npm install my-project
+  cd my-project
+```
+    
+## Run Locally
 
-### Advanced Configuration
+Clone the project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```bash
+https://github.com/airKing05/react-eco-auth.git
+```
 
-### Deployment
+Go to the project directory
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+  cd react-eco-auth
+```
 
-### `npm run build` fails to minify
+Install dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+  npm install
+```
+
+**Start the Rectjs**
+
+```bash
+  npm start
+```
+
+**Start the Json server**
+
+
+```bash
+  cd db
+
+  json-server –watch db.json --port 3001
+```
+## Screenshots
+
+- sign up page
+![App Screenshot](https://github.com/airKing05/react-eco-auth/blob/master/screenshot/Screenshot%202022-09-03%20at%201.12.30%20PM.png?raw=true)
+
+- sign in with invalid data
+![App Screenshot](https://github.com/airKing05/react-eco-auth/blob/master/screenshot/Screenshot%202022-09-03%20at%201.02.27%20PM.png?raw=true)
+
+- valid user sign in
+![App Screenshot](https://github.com/airKing05/react-eco-auth/blob/master/screenshot/Screenshot%202022-09-03%20at%201.04.54%20PM.png?raw=true)
+
+- Home page
+![App Screenshot](https://github.com/airKing05/react-eco-auth/blob/master/screenshot/Screenshot%202022-09-03%20at%201.06.36%20PM.png?raw=true)
+
+- Cart page
+![App Screenshot](https://github.com/airKing05/react-eco-auth/blob/master/screenshot/Screenshot%202022-09-03%20at%201.08.54%20PM.png?raw=true)
+
