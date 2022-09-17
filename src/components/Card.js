@@ -13,6 +13,7 @@ export default function Card({...product}) {
   }
     
   return (
+    
     <div className='col-md-3 p-2 mx-1 my-4 border rounded text-center'>
       <div className='position-relative'>
         <img src={image} className='img-fluid rounded mb-3' style={{ maxWidth: '200px', height: '200px' }} alt='photu' />

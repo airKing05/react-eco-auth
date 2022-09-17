@@ -1,54 +1,78 @@
 import React, { useState } from 'react'
 import InputField from '../components/InputField';
+import { useNavigate } from "react-router-dom";
 import { v4 as uuid } from 'uuid';
 
 const userData = {
-    "name": "anilraj",
-    "lastName": "meena",
-    "email": "anil@gmail.com",
-    "address": "chandan heli",
-    "city": "bundi",
-    "pinCode": "323021",
-    "country": "india",
-    "state": "rajasthan",
-    "mobileNumber": "1234567890",
-    "fax": "234rtgfds",
-    "phoneNumber": "0987654321",
-    "password": "anilraj123",
-    "cPassword": "anilraj123"
+    "name": "",
+    "lastName": "",
+    "email": "",
+    "address": "",
+    "city": "",
+    "pinCode": "",
+    "country": "",
+    "state": "",
+    "mobileNumber": "",
+    "fax": "",
+    "phoneNumber": "",
+    "password": "",
+    "cPassword": "",
+   " profession": ""
 }
 
 export default function Signup() {
     const [user, setUser] = useState(userData);
+    const [err, setErr] = useState('')
+    const navigate = useNavigate();
 
+    function setError(err){
+        setErr(err)
+    }
     function handleChange(e) {
         const { name, value } = e.target;
         setUser({ ...user, [name]: value });
+       
     }
     // console.log(user)
-    function handleClick() {
-        const url = 'http://localhost:3001/userData'
-        const unique_id = uuid()
-        //console.log()
-        const userDataToSend = fetch(url, {
-            method: 'POST',
-            headers: {
-                "content-Type": "application/json"
-            },
-            body: JSON.stringify({ ...user, id: unique_id })
+    function handleClick(e) {
+        e.preventDefault();
+        const {name, lastName, email, mobileNumber, city, state, address, country, password, cPassword} = user;
 
-        })
-        userDataToSend.then((res) => res.json())
-        .then(res => {
-            const {email, password}  = user;
-            const newData = { email, password, unique_id }
-            const oldData = (localStorage.getItem('userData')) != null ? JSON.parse(localStorage.getItem('userData')): [{}]
-            const loginData = [newData, ...oldData ]
-            localStorage.setItem('userData', JSON.stringify(loginData))
-        })
+        if (name === '' || lastName === '' || email === '' || mobileNumber === '', city === '' || state === '' || address === '' || country === '' || password === '' || cPassword === ''){
+            //console.log("Field is required")
+            setError("Field is required")
+        } else if (password !== cPassword){
+            //console.log("password and confirm password should be same")
+            setError("Password and confirm password should be same")
+        }else{
+            const url = 'http://localhost:3001/userData'
+            const unique_id = uuid()
+            //console.log()
+            const userDataToSend = fetch(url, {
+                method: 'POST',
+                headers: {
+                    "content-Type": "application/json"
+                },
+                body: JSON.stringify({ ...user, id: unique_id })
+
+            })
+            userDataToSend.then((res) => res.json())
+                .then(res => {
+                    const { email, password } = user;
+                    const newData = { email, password, unique_id }
+                    const oldData = (localStorage.getItem('userData')) != null ? JSON.parse(localStorage.getItem('userData')) : [{}]
+                    const loginData = [newData, ...oldData]
+                    localStorage.setItem('userData', JSON.stringify(loginData))
+                })
+            navigate('/sign-in')
+
+        }
+       
     }
     return (
         <div className='container py-5' style={{ maxWidth: "800px" }}>
+            <h4 className='text-white bg-danger p-2'>{err}</h4>
+            <form>
             <div className=''>
                 <label className='fs-6 fw-normal mx-2'>
                     <p>  Individual/Enterprise/Government &#9733; </p>
@@ -56,22 +80,23 @@ export default function Signup() {
 
                 <div className='row mx-2'>
                     <span class="form-check col">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                        <label class="form-check-label" for="flexRadioDefault1">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1"/>
+                                <label class="form-check-label" for="flexRadioDefault1">
                             Individual
                         </label>
                     </span>
                     <span class="form-check col">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                        <label class="form-check-label" for="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                            <label class="form-check-label" for="flexRadioDefault2">
                             Enterprise
                         </label>
                     </span>
                     <span class="form-check col">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                        <label class="form-check-label" for="flexRadioDefault2">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
+                        <label class="form-check-label" for="flexRadioDefault3">
                             Government
                         </label>
+       
                     </span>
                 </div>
             </div>
@@ -91,7 +116,7 @@ export default function Signup() {
                 <div className='col-md-6'>
                     <InputField
                         type="text"
-                        name="last-name"
+                        name="lastName"
                         label="last name"
                         placeholder="Last name"
                         // defaultValue={this.state.email}
@@ -246,9 +271,9 @@ export default function Signup() {
             </div>
 
             <div class="d-grid gap-2 mx-3 pt-3">
-                <button class="btn btn-success" type="button" onClick={handleClick}>Submit</button>
+                <button class="btn btn-success" type="submit" onClick={handleClick}>SignUp</button>
             </div>
-
+            </form>
         </div>
     )
 }

@@ -7,7 +7,9 @@ export default function Home() {
     let url = 'https://fakestoreapi.com/products';
     fetch(url)
     .then(res=> res.json())
-    .then(res => setProducts(res))
+    .then(res => {
+      //console.log("get data res.......", res)
+      setProducts(res)})
   }
   useEffect(()=>{
     getData()

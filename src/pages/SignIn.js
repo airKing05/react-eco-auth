@@ -59,7 +59,7 @@ export default function SignIn() {
                 />
             </div>
             <div class="d-grid gap-2 mx-3 pt-3">
-                <button class="btn btn-success" type="button" onClick={handleClick}>Submit</button>
+                <button class="btn btn-success" type="button" onClick={handleClick}>SignIn</button>
                 {
                     err ? <h5 className=' mt-2 text-danger'>User does not exist</h5> : null
                 }

@@ -18,12 +18,12 @@ export default function Navbar() {
                     <div className="me-auto"></div>
                     <ul className="navbar-nav">
                         <li className="nav-item ">
-                            <NavLink className="nav-link active my-auto" aria-current="page" to="/"><UilHouseUser/> Home</NavLink>
+                            <NavLink className="nav-link my-auto" aria-current="page" to="/"><UilHouseUser/> Home</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link position-relative" to="/cart"><UilShoppingBag/> 
                             {
-                                    cartData.length-1 > 0 ? <span className='rounded-circle bg-secondary px-2 text-white position-absolute fs-6' style={{ top: '0%', left: '0%' }}>{cartData.length-1}</span> : null
+                                    cartData.length > 0 ? <span className='rounded-circle bg-secondary px-2 text-white position-absolute fs-6' style={{ top: '0%', left: '0%' }}>{cartData.length}</span> : null
                             } 
                              Cart</NavLink>
                         </li>
