@@ -22,6 +22,8 @@ const userData = {
 
 export default function Signup() {
     const [user, setUser] = useState(userData);
+ 
+    //console.log(user)
     const [err, setErr] = useState('')
     const navigate = useNavigate();
 
@@ -30,6 +32,7 @@ export default function Signup() {
     }
     function handleChange(e) {
         const { name, value } = e.target;
+       //console.log(name, value)
         setUser({ ...user, [name]: value });
        
     }
@@ -37,8 +40,8 @@ export default function Signup() {
     function handleClick(e) {
         e.preventDefault();
         const {name, lastName, email, mobileNumber, city, state, address, country, password, cPassword} = user;
-
-        if (name === '' || lastName === '' || email === '' || mobileNumber === '', city === '' || state === '' || address === '' || country === '' || password === '' || cPassword === ''){
+        console.log(name, lastName, email, mobileNumber, city, state, address, country, password, cPassword)
+        if (name === '' || lastName === '' || email === '' || mobileNumber === '' || city === '' || state === '' || address === '' || country === '' || password === '' || cPassword === ''){
             //console.log("Field is required")
             setError("Field is required")
         } else if (password !== cPassword){
@@ -71,7 +74,10 @@ export default function Signup() {
     }
     return (
         <div className='container py-5' style={{ maxWidth: "800px" }}>
-            <h4 className='text-white bg-danger p-2'>{err}</h4>
+            {
+                err ? <h4 className='text-white bg-danger p-2'>{err}</h4> : null
+            }
+            
             <form>
             <div className=''>
                 <label className='fs-6 fw-normal mx-2'>
@@ -86,10 +92,14 @@ export default function Signup() {
                         </label>
                     </span>
                     <span class="form-check col">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2"/>
                             <label class="form-check-label" for="flexRadioDefault2">
                             Enterprise
-                        </label>
+                            </label>
+                            {/* {
+                               comanyName ? <label>{setCompanyName}</label> : 
+                            } */}
+
                     </span>
                     <span class="form-check col">
                             <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault3" />
@@ -213,7 +223,7 @@ export default function Signup() {
                 <div className='col'>
                     <InputField
                         type="text"
-                        name="text"
+                        name="mobileNumber"
                         label="mobile number"
                         placeholder="Mobile number"
                         // defaultValue={this.state.email}

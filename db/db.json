@@ -52,6 +52,42 @@
       " profession": "",
       "text": "1234560",
       "id": "377f6151-5c6c-4a35-bd9f-5680781be820"
+    },
+    {
+      "name": "anil",
+      "lastName": "meena",
+      "email": "anil@gmail.com",
+      "address": "delhi",
+      "city": "delhi",
+      "pinCode": "123456",
+      "country": "india",
+      "state": "delhi",
+      "mobileNumber": "123456789012",
+      "fax": "123",
+      "phoneNumber": "",
+      "password": "anilraj",
+      "cPassword": "anilraj",
+      " profession": "",
+      "text": "1234567890",
+      "phone": "0987654321",
+      "id": "c7f13039-6d9c-4ddd-9442-8b15bcbb41e7"
+    },
+    {
+      "name": "arun@gmail.com",
+      "lastName": "suneja",
+      "email": "arun@gmail.com",
+      "address": "delhi",
+      "city": "delhi",
+      "pinCode": "123456",
+      "country": "india",
+      "state": "delhi",
+      "mobileNumber": "1234567890",
+      "fax": "",
+      "phoneNumber": "",
+      "password": "arun123",
+      "cPassword": "arun123",
+      " profession": "",
+      "id": "dc2096e7-0036-4ea4-876a-162a25b48ebc"
     }
   ]
 }
